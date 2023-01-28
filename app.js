@@ -15,7 +15,7 @@ const apiRouter = require("./routes/api");
 const mongoose = require('mongoose')
 // mongoose
 mongoose.set('strictQuery', false)
-mongoose.connect('mongodb://127.0.0.1:27017/staycation_db');
+mongoose.connect('mongodb+srv://hasbullah:Hasbullmern@cluster0.xlo5s0c.mongodb.net/staycation_db?retryWrites=true&w=majority');
 const app = express();
 
 // view engine setup
