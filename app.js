@@ -27,6 +27,7 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
+  cookie : {maxAge : 36000000}
 }))
 app.use(logger('dev'));
 app.use(express.json());
