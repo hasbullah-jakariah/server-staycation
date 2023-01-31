@@ -16,6 +16,7 @@ const mongoose = require('mongoose')
 // mongoose
 mongoose.set('strictQuery', false)
 mongoose.connect('mongodb+srv://hasbullah:Hasbullmern@cluster0.xlo5s0c.mongodb.net/staycation_db?retryWrites=true&w=majority');
+// mongoose.connect('mongodb://127.0.0.1:27017/staycation_db');
 const app = express();
 
 // view engine setup
@@ -27,7 +28,7 @@ app.use(session({
   secret: 'keyboard cat',
   resave: false,
   saveUninitialized: true,
-  cookie : {maxAge : 36000000}
+  cookie : {maxAge : 60000}
 }))
 app.use(logger('dev'));
 app.use(express.json());
@@ -46,7 +47,11 @@ app.use("/api/v1/member", apiRouter)
 app.use(function(req, res, next) {
   next(createError(404));
 });
-
+app.use((req, res, next) => {
+  // menyentuh session setiap kali pengguna melakukan aktivitas dalam aplikasi
+  req.session.touch();
+  next();
+});
 // error handler
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
