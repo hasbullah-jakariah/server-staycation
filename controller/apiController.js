@@ -130,7 +130,7 @@ module.exports= {
           phoneNumber === undefined ||
           accountHolder === undefined ||
           bankFrom === undefined) {
-          res.status(404).json({ message: "Lengkapi semua field" });
+           res.status(404).json({ message: "Lengkapi semua field" });
         }
     
         const item = await Item.findOne({ _id: itemId });

@@ -16,7 +16,7 @@ const mongoose = require('mongoose')
 // mongoose
 mongoose.set('strictQuery', false)
 mongoose.connect('mongodb+srv://hasbullah:Hasbullmern@cluster0.xlo5s0c.mongodb.net/staycation_db?retryWrites=true&w=majority');
-// mongoose.connect('mongodb://127.0.0.1:27017/staycation_db');
+
 const app = express();
 
 // view engine setup
