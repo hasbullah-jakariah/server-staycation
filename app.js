@@ -18,7 +18,7 @@ mongoose.set('strictQuery', false)
 
 // mongoose.connect('mongodb+srv://hasbullah:Hasbullmern@cluster0.xlo5s0c.mongodb.net/staycation_db?retryWrites=true&w=majority');
 mongoose.set("strictQuery", true);
-mongoose.connect('mongodb+srv://hasbullah:staymern@cluster0.ah0pld1.mongodb.net/?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://hasbullah:adminstay@cluster0.ah0pld1.mongodb.net/staycation_db?retryWrites=true&w=majority');
 
 const app = express();
 
