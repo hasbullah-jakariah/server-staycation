@@ -17,19 +17,18 @@ module.exports = {
             const alertMessage = req.flash("alertMessage");
             const alertStatus = req.flash("alertStatus");
             const alert = { message : alertMessage, status : alertStatus};
-            if(req.session.user == null || req.session.user == undefined){
+            
                 res.render("index", {
                     title : "Staycation | Login",
                     alert,
                     user,
                 });
-            }else{
-                res.redirect("/admin/dashboard");
-            }
-        } catch (error) {
-            
-            res.redirect("/admin/signin");
+           
+        res.redirect("/admin/dashboard");
+        }catch{(error) => {
+            console.log(error)
         }
+    }
     },
     actionSignin : async (req, res) => {
         try {
@@ -46,10 +45,7 @@ module.exports = {
                 req.flash("alertStatus", "danger");
                 return res.redirect("/admin/signin");    
             }
-            req.session.user = {
-                id : user.id,
-                username : user.username,
-            };
+           
             res.redirect("/admin/dashboard");
         } catch (error) {
             res.redirect("/admin/signin");    
