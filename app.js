@@ -14,11 +14,10 @@ const adminRouter = require('./routes/admin');
 const apiRouter = require("./routes/api");
 const mongoose = require('mongoose')
 // mongoose
-mongoose.set('strictQuery', false)
 
 // mongoose.connect('mongodb+srv://hasbullah:Hasbullmern@cluster0.xlo5s0c.mongodb.net/staycation_db?retryWrites=true&w=majority');
 mongoose.set("strictQuery", true);
-mongoose.connect('mongodb+srv://hasbullah:staydb@cluster0.ah0pld1.mongodb.net/staycation_db?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://hasbullah:dbstay@cluster0.ah0pld1.mongodb.net/?retryWrites=true&w=majority');
 
 const app = express();
 
@@ -27,7 +26,12 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(methodOverride("_method"));
 app.use(flash());
-
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { maxAge : 60000 }
+}))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
