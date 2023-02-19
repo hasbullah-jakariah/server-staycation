@@ -6,7 +6,6 @@ const {upload, uploadMultiple } = require("../middlewares/multer");
 
 router.get("/signin", adminController.viewSignin);
 router.post("/signin", adminController.actionSignin);
-router.get("/logout", adminController.actionLogout);
 // endpoint category
 router.get("/dashboard", adminController.viewDashboard);
 router.get("/category", adminController.viewCategory);
