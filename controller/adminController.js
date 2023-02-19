@@ -52,10 +52,7 @@ module.exports = {
             
         }
     },
-    actionLogout : (req, res) => {
-        req.session.destroy();
-        res.redirect("/admin/signin");
-    },
+   
     viewDashboard : async (req, res) => {
         try {
             const member = await Member.find();
